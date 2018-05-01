@@ -14,3 +14,16 @@ _cairo_fixed_from_double (double d)
 #endif
 }
 
+/* Way to have a [0|1] iteration loop */
+/* Logging Module Design from Qt*/
+ #define qCDebug(category, ...) \
+     for (bool qt_category_enabled = category().isDebugEnabled(); qt_category_enabled; qt_category_enabled = false) \
+         QMessageLogger(QT_MESSAGELOG_FILE, QT_MESSAGELOG_LINE, QT_MESSAGELOG_FUNC, category().categoryName()).debug(__VA_ARGS__)
+
+/* Ways to use __VA_ARGS__ in pre-processor */
+#define LOG1(fmt, ...)  printf(fmt "\r\n", __VA_ARGS__) //standard
+#define LOG2(fmt, arg...)  printf(fmt "\r\n", arg) //extension
+#define LOG3(fmt, arg...)  printf(fmt "\r\n", ##arg)
+
+
+
