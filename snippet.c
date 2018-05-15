@@ -26,4 +26,11 @@ _cairo_fixed_from_double (double d)
 #define LOG3(fmt, arg...)  printf(fmt "\r\n", ##arg)
 
 
-
+# a chanined method invocation that can allow atomicity
+# Android 
+if (fragment == null) {
+  fragment = new CrimeFragment();
+  fm.beginTransaction()
+  .add(R.id.fragment_container, fragment)
+  .commit();
+}
